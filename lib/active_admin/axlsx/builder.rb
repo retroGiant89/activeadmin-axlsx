@@ -74,7 +74,7 @@ module ActiveAdmin
 
       # This is the I18n scope that will be used when looking up your
       # colum names in the current I18n locale.
-      # If you set it to [:active_admin, :resources, :posts] the 
+      # If you set it to [:active_admin, :resources, :posts] the
       # serializer will render the value at active_admin.resources.posts.title in the
       # current translations
       # @note If you do not set this, the column name will be titleized.
@@ -129,7 +129,7 @@ module ActiveAdmin
       # Serializes the collection provided
       # @return [Axlsx::Package]
       def serialize(collection)
-        @collection = collection
+        @collection   = collection
         apply_filter @before_filter
         export_collection(collection)
         apply_filter @after_filter
@@ -141,7 +141,7 @@ module ActiveAdmin
       class Column
 
         def initialize(name, block = nil)
-          @name = name.to_sym
+          @name = name
           @data = block || @name
         end
 
