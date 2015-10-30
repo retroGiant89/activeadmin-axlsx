@@ -18,7 +18,7 @@ class Railtie < ::Rails::Railtie
 
   end
 
-  config.after_initialize do
+  initializer "active_admin_axlsx_railtie.configure_rails_initialization" do |variable|
     ActiveAdmin::ResourceDSL.send :include, ActiveAdmin::Axlsx::DSL
     ActiveAdmin::Resource.send :include, ActiveAdmin::Axlsx::ResourceExtension
     ActiveAdmin::Views::PaginatedCollection.add_format :xlsx
