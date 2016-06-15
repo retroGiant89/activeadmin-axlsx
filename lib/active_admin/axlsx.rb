@@ -12,6 +12,10 @@ class Railtie < ::Rails::Railtie
         # The mime type to be used in respond_to |format| style web-services in rails
         Mime::Type.register "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", :xlsx
       end
+      if Mime::Type.lookup_by_extension(:xlsx_serializer).nil?
+        # The mime type to be used in respond_to |format| style web-services in rails
+        Mime::Type.register "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", :xlsx_serializer
+      end
     rescue NameError
       # noop
     end
