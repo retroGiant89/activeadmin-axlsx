@@ -2,7 +2,7 @@ module ActiveAdmin
   module Axlsx
     module ResourceControllerExtension
       def self.included(base)
-        base.send :alias_method_chain, :per_page, :xlsx_serializer
+        base.send :alias_method_chain, :per_page, :xlsx
         base.send :respond_to, :xlsx_serializer
       end
 
