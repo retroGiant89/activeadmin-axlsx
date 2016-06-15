@@ -2,11 +2,11 @@ module ActiveAdmin
   module Axlsx
     module ResourceControllerExtension
       def self.included(base)
-        base.send :alias_method_chain, :per_page, :xlsx
-        base.send :respond_to, :xlsx
+        base.send :alias_method_chain, :per_page, :xlsx_serializer
+        base.send :respond_to, :xlsx_serializer
       end
 
-      ActionController::Renderers.add :xlsx do |obj, options|
+      ActionController::Renderers.add :xlsx_serializer do |obj, options|
         xlsx = active_admin_config.xlsx_builder.serialize(collection)
         send_data xlsx, filename: "#{xlsx_filename}", type: Mime::Type.lookup_by_extension(:xlsx)
       end
